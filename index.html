@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry-aware Feature Matching for Large-Scale Structure from Motion</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .abstract {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .abstract p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        .author-list {
+            margin: 20px 0;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .title-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px 0;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+        .teaser-image {
+            max-width: 60%;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="title-section">
+        <div class="container px-4">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="display-4">Geometry-aware Feature Matching for Large-Scale Structure from Motion</h1>
+                    <h3 class="text-muted mb-4">3DV 2025 (Oral)</h3>
+                    <div class="author-list">
+                        <h5>
+                            <a href="https://xtcpete.com">Gonglin Chen</a><sup>1,2</sup>,
+                            <a href="https://jinsenwu.com">Jinsen Wu</a><sup>1,2</sup>,
+                            <a href="https://scholar.google.com/citations?user=LVWRssoAAAAJ&hl=en">Haiwei Chen</a><sup>1,2</sup>,
+                            <a href="https://scholar.google.com/citations?user=HKXO9CEAAAAJ&hl=en">Wenbin Teng</a><sup>1,2</sup>,
+                            <a href="https://scholar.google.com/citations?user=9_Nmg4kAAAAJ&hl=en">Zhiyuan Gao</a><sup>1,2</sup>,
+                            <a href="https://ict.usc.edu/about-us/leadership/research-leadership/andrew-feng/">Andrew Feng</a><sup>1</sup>,
+                            <a href="https://u.osu.edu/qin.324/">Rongjun Qin</a><sup>3</sup>,
+                            <a href="https://ict.usc.edu/about-us/leadership/research-leadership/yajie-zhao/">Yajie Zhao</a><sup>1,2</sup>
+                        </h5>
+                        <div class="mt-2">
+                            <p class="mb-1"><sup>1</sup>Institute for Creative Technologies &nbsp;&nbsp;&nbsp; <sup>2</sup>University of Southern California &nbsp;&nbsp;&nbsp; <sup>3</sup>The Ohio State University</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <a href="./assets//2409.02310v3.pdf" class="btn btn-dark mx-2" target="_blank">
+                            <i class="fas fa-file-pdf me-2"></i>Paper
+                        </a>
+                        <a href="./assets/supp.pdf" class="btn btn-dark mx-2" target="_blank">
+                            <i class="fas fa-file-alt me-2"></i>Supplementary
+                        </a>
+                        <!-- <a href="#" class="btn btn-dark mx-2">
+                            <i class="fab fa-github me-2"></i>Code (Coming Soon)
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container px-4">
+        <!-- Rest of the content -->
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="section">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <img src="./assets/teaser.jpg" class="img-fluid teaser-image" alt="Paper teaser">
+                        </div>
+                        <p class="mt-3">
+                            <strong>Figure 1.</strong> Our proposed method bridges detector-based feature matching with detector-free feature matching. We utilize sparse correspondences as geometric priors to iteratively optimize the matching process. By leveraging the denser matches from detector-free matchers, our method achieves highly accurate camera pose recovery and generates denser point clouds. This approach is particularly effective in challenging large baseline scenarios, such as air-to-ground imagery, and provides substantial benefits to downstream applications like novel view synthesis.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Abstract -->
+                <div class="section" id="abstract">
+                    <h2>Abstract</h2>
+                    <div class="abstract">
+                        <p>Establishing consistent and dense correspondences across multiple images is crucial for Structure from Motion (SfM) systems. Significant view changes, such as air-to-ground with very sparse view overlap, pose an even greater challenge to the correspondence solvers. We present a novel optimization-based approach that significantly enhances existing feature matching methods by introducing geometry cues in addition to color cues. This helps fill gaps when there is less overlap in large-scale scenarios. Our method formulates geometric verification as an optimization problem, guiding feature matching within detector-free methods and using sparse correspondences from detector-based methods as anchor points. By enforcing geometric constraints via the Sampson Distance, our approach ensures that the denser correspondences from detector-free methods are geometrically consistent and more accurate. This hybrid strategy significantly improves correspondence density and accuracy, mitigates multi-view inconsistencies, and leads to notable advancements in camera pose accuracy and point cloud density. It outperforms state-of-the-art feature matching methods on benchmark datasets and enables feature matching in challenging extreme large-scale settings.</p>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div class="section" id="results">
+                    <h2>Results</h2>
+                    <div class="row">
+                        <h4>
+                            IMC 2021 Phototourism and ScanNet Datasets
+                        </h4>
+                        <div class="col-md-12 text-center">
+                            <img src="./assets/rec_selected.jpg" class="img-fluid" alt="Result 1">
+                        </div>
+                        <p class="text-center mt-3"><strong>Figure 2.</strong>Qualitative Results. Our method is qualitatively compared with ALIKED + LG on multiple scenes. Green cameras have less than 3◦absolute pose error, while red cameras have an error larger than 3◦. More results can be found in supplementary material.</p>
+                    
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="./assets/table1.jpg" class="img-fluid" alt="Result 2">
+                            <p class="text-center"><strong>Table 1.</strong> Estimated pose errors on IMC 2021 phototourism in outdoor scences. Results are averaged across all scenes.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="./assets/table2.jpg" class="img-fluid" alt="Result 2">
+                            <p class="text-center"><strong>Table 2.</strong> Estimated pose errors on ScanNet in indoor scences. Results are averaged across all scenes.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h4>
+                            Air-to-Ground Dataset
+                        </h4>
+                        <div class="col-md-12 text-center">
+                            <img src="./assets/air_ground.jpg" class="img-fluid" alt="Result 1">
+                        </div>
+                        <p class="mt-3"><strong>Figure 3.</strong>Our method is qualitatively compared with other feature matching methods on large-scale air-to-ground
+                            datasets. Red cameras are recovered poses.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img src="./assets/table3.jpg" class="img-fluid" alt="Result 2">
+                            <p><strong>Table 3.</strong> SfM results with different feature matchers on Air-to-Ground datasets. For methods that generate 2 separate models, we report
+                                them as “air model/ground model”.</p>
+                        </div>
+                </div>
+
+                <!-- Method -->
+                <div class="section" id="method">
+                    <h2>Method</h2>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <img src="./assets/pipeline.png" class="img-fluid" alt="Result 1">
+                        </div>
+                        <p class="mt-3"><strong>Figure 4.</strong>An overview of our pipeline for SfM reconstruction. 1. the pipeline runs image retrieval based on global embeddings generated
+                            by dinov2. 2. A backbone module takes image pairs as input. The image pairs will be processed by a Detector-Free Backbone and a
+                            Detector-Based backbone. 3. A geometry-aware optimization module is applied to iteratively optimize the fundamental matrix and matches
+                            with anchor points from detector-based methods. 4. The final matched coarse points are refined using a correlation-based refinement block.
+                            5. Final refined matches are then fed into COLMAP for SfM.</p>
+                    </div>
+                    
+                </div>
+
+                <div class="section" id="bibtex">
+                    <h2>Citation</h2>
+                    <div class="abstract">
+                        <pre class="p-3 bg-light" style="border-radius: 5px; overflow-x: auto;"><code>@misc{chen2024geometryawarefeaturematchinglargescale,
+      title={Geometry-aware Feature Matching for Large-Scale Structure from Motion}, 
+      author={Gonglin Chen and Jinsen Wu and Haiwei Chen and Wenbin Teng and Zhiyuan Gao and Andrew Feng and Rongjun Qin and Yajie Zhao},
+      year={2024},
+      eprint={2409.02310},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2409.02310}, 
+}</code></pre>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="section">
+                <h2>Acknowledgments</h2>
+                <div>
+                    <p>
+                        Supported by the Intelligence Advanced Research Projects
+                        Activity (IARPA) via Department of Interior/ Interior Busi-
+                        ness Center (DOI/IBC) contract number 140D0423C0075.
+                        The U.S. Government is authorized to reproduce and dis-
+                        tribute reprints for Governmental purposes notwithstanding
+                        any copyright annotation thereon. Disclaimer: The views
+                        and conclusions contained herein are those of the authors
+                        and should not be interpreted as necessarily representing
+                        the official policies or endorsements, either expressed or
+                        implied, of IARPA, DOI/IBC, or the U.S. Government.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>
